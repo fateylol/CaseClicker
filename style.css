@@ -1,0 +1,77 @@
+html, body, #wrapper, div#main {
+    height: 100%;
+    background-size: 100%;
+    background-color: rgb(15, 14, 32);
+    background-repeat:no-repeat;
+    margin:0%;
+}
+
+div {
+    display: block;
+}
+
+.header {
+    width: 100%;
+    height:4%;
+    background-color: rgb(43, 43, 68);
+}
+
+.displaycontent {
+    width:85%;
+    height:96%;
+    display: flex;
+    flex-direction: row;
+}
+
+.leftmenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width:15%;
+    height:90%;
+    background-color: rgb(32, 32, 51);
+}
+
+.centermenu {
+    width:70%;
+    height:100%;
+    background-color: rgb(23, 23, 34);
+}
+
+.btnspace {
+    width:15%;
+    height:10%;
+    background-color: green;
+}
+
+.rightmenu {
+    width:15%;
+    height:100%;
+    background-color: rgb(32, 32, 51);
+}
+
+.clearbutton {
+    border: 0px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.clearbutton1 {
+    border: 0px;
+    background-color: green;
+    width:15%;
+    height:10%;
+}
+
+img {
+    width:100%;
+    height:100%;
+}
+
+.onrow {
+    width:85%;
+    height:96%;
+    display: flex;
+    flex-direction: column;
+}
