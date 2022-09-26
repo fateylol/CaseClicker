@@ -4,20 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="caselate.png">
+    <link rel="icon" href="case1.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="case1.png">
     <link rel="stylesheet" href="style.css">
     <title>Case Clicker</title>
 </head>
 <body>
-    <div class="header"></div>
-    <div class="onrow">
-        <div class="leftmenu"><button class="clearbutton"><img draggable="false" src="case1.png"></button></div>
-        <button class="clearbutton1" onclick="shoot()"><div class="btnspace"></div></button>
+    <div class="header"><h1>CASE CLICKER</h1></div>
+    <div class="container">
+        <div class="onrow">
+            <div class="leftmenu"><button class="clearbutton" onclick="open123()"><img draggable="false" src="case1.png"></button></div>
+            <button class="clearbutton1" onclick="shoot()"><div class="btnspace"></div></button>
+        </div>
+        <div id ="itemstext"class="mainpart">
+        </div>
     </div>
 </body>
 <script>
-    function shoot() {
-        console.log("SHOOTING!")
+
+
+
+    function open123() {
+        var items = [
+            "AK-47 | Asiimov^ak47_asiimov^999",
+            "AWP | Lightning Strike^awp_lightning_strike^750",
+            "Karambit | Crimson Web^karambit_crimson_web^1800"
+        ]
+
+        var randomitem = items[Math.floor(Math.random() * items.length)];
+        let iteminfo = randomitem.split("^")
+        let curritems = document.getElementById("itemstext").innerHTML;
+        document.getElementById("itemstext").innerHTML = `${curritems} <div class="itembg"><img draggable="false" src=${iteminfo[1]}.png style="height:50px; width:50px;">${iteminfo[2]}</div>`;
     }
 </script>
 </html>

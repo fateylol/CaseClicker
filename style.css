@@ -14,8 +14,21 @@ div {
     width: 100%;
     height:4%;
     background-color: rgb(43, 43, 68);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height:96%;
+}
 .displaycontent {
     width:85%;
     height:96%;
@@ -29,8 +42,8 @@ div {
     align-items: center;
     justify-content: center;
     text-align: center;
-    width:15%;
-    height:90%;
+    width:100%;
+    height:100%;
     background-color: rgb(32, 32, 51);
 }
 
@@ -41,7 +54,7 @@ div {
 }
 
 .btnspace {
-    width:15%;
+    width:100%;
     height:10%;
     background-color: green;
 }
@@ -60,7 +73,7 @@ div {
 .clearbutton1 {
     border: 0px;
     background-color: green;
-    width:15%;
+    width:100%;
     height:10%;
 }
 
@@ -70,8 +83,54 @@ img {
 }
 
 .onrow {
-    width:85%;
-    height:96%;
+    width:15%;
+    height:100%;
     display: flex;
     flex-direction: column;
+}
+
+:root {
+    color-scheme: dark;
+}
+
+h1 {
+    font-size: 30px;
+    color:white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.mainpart {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width:100%;
+    height:100%;
+    background-color: rgb(32, 32, 43);
+}
+
+.minitext {
+    font-size: 20px;
+    color:white;
+    font-family: 'Montserrat', sans-serif;
+    width:100%;
+    height:5%;
+}
+
+.itembg {
+    background-color: black;
+    height:75px;
+    width:50px;
+    color: red;
+    border: 1px;
+    margin-left: 2px;
+    border-style: solid;
+    text-align: center;
+}
+
+p {
+    flex-wrap: wrap;
+    color: white;
+    margin: 0%;
+    display: flex;
+    flex-direction: row;
 }
