@@ -13,7 +13,30 @@
     <title>Case Clicker</title>
 </head>
 <body>
-    <div class="header"><h1>$</h1><h1 id="money">0.00</h1></div>
+    <div id="menu1" class="bg-color" style="visibility:visible;">
+        <div id ="weaponwin1"class="bg-modal">
+            <div class="container-modal">
+                <h3>Settings</h3>
+                <div class="settings">
+                    <h4>Popups:</h4>
+                    <button class="settingbutton" id="popupstate" onclick="togglepopup()"style="background-color:green;border-color:green;border-radius:4px;">Enabled</button>
+                </div>
+                <button class="confirmbutton" onclick="closesettings()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="menu" class="bg-color" style="visibility:hidden;">
+        <div id ="weaponwin"class="bg-modal">
+            <div class="container-modal">
+                <h3 id="newitemname">{ITEM NAME}</h3>
+                <img draggable="false" id="newitemimg" src="./img/Recoil/ak47_ice_coaled.png" style="height:70%;">
+                <button class="confirmbutton" onclick="closemenu()">CONFIRM</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="header"><h1>$</h1><h1 id="money">0.00</h1><right><button onclick="opensettings()">Settings</button></right></div>
     <div class="container">
         <div class="onrow">
             <div class="leftmenu"><button class="clearbutton" onclick="open123()"><img draggable="false" src="./img/Recoil/case1.png" style="height:200px"><h2>Recoil Case</h2><div class="makestringrow"><p>Key Price: $</p><p id="caseprice">2.50</p><p>|</p><p>Key Price: $</p><p id="keyprice">1.28</p></div></button></div>
@@ -24,13 +47,40 @@
     </div>
 </body>
 <script>
-    
+
+    var amountpclick = 0.10
+
+    function closesettings() {
+        document.getElementById("menu1").style.visibility = "hidden";
+    }
+
+    function opensettings() {
+        document.getElementById("menu1").style.visibility = "visible";
+    }
+
+    function togglepopup() {
+        let state = document.getElementById("popupstate").textContent
+        
+        if (state == "Enabled") {
+            document.getElementById("popupstate").textContent = "Disabled"
+            document.getElementById("popupstate").style.backgroundColor = "red"
+            document.getElementById("popupstate").style.borderColor = "red"
+        } else {
+            document.getElementById("popupstate").textContent = "Enabled"
+            document.getElementById("popupstate").style.backgroundColor = "green"
+            document.getElementById("popupstate").style.borderColor = "green"
+        }
+    }
+
+    function closemenu() {
+        document.getElementById("menu").style.visibility = "hidden";
+    }
 
     function shoot() {
         let currMoney = document.getElementById("money").innerHTML
         let sumFL = parseFloat(currMoney)
 
-        let newsum1 = sumFL + 0.50
+        let newsum1 = sumFL + amountpclick
         document.getElementById("money").innerHTML = `${(Math.round(newsum1 * 100))/ 100}`
     }
     
@@ -60,42 +110,48 @@
         let cprice = parseFloat(document.getElementById("caseprice").innerHTML)
         let kprice = parseFloat(document.getElementById("keyprice").innerHTML)
         let minusamount = cprice + kprice
+
+        // DROP RATES //
+        let blueL = 0
+        let blueH = 150
+
+        let purpleL = 150
+        let purpleH = 180
+
+        let pinkL = 180
+        let pinkH = 197
+
+        let redL = 197
+        let redH = 200
         
         if (sumFL > minusamount) {
             let newsum = currMoney - minusamount
             
             document.getElementById("money").innerHTML = `${(Math.round(newsum * 100))/ 100}`
-    
-    
-    
-            var items = [
-                "USP-S | Printstream^./img/Recoil/usp_printstream^160.43^#eb4b4b",
-                "AWP | Chromatic Aberration^./img/Recoil/awp_chromatic_aberration^63.74^#eb4b4b",
-                "AK-47 | Ice Coaled^./img/Recoil/ak47_ice_coaled^50.42^#d32ee6",
-                "P250 | Visions^./img/Recoil/p250_visions^14.64^#d32ee6",
-                "Sawed-Off | Kiss♥Love^./img/Recoil/sawed_off_kiss_love^17.13^#d32ee6",
-                "Dual Berettas | Flora Carnivora^./img/Recoil/db_flora_carnivora^3.20^#8847ff",
-                "SG 553 | Dragon Tech^./img/Recoil/sg553_dragon_tech^3.20^#8847ff",
-                "R8 Revolver | Crazy 8^./img/Recoil/r8_crazy_8^3.80^#8847ff",
-                "P90 | Vent Rush^./img/Recoil/p90_vent_rush^2.93^#8847ff",
-                "M249 | Downtown^./img/Recoil/m249_downtown^2.53^#8847ff",
-                "Glock-18 | Winterized^./img/Recoil/glock18_winterized^0.47^#4b69ff",
-                "M4A4 | Poly Mag^./img/Recoil/m4a4_poly_mag^0.93^#4b69ff",
-                "FAMAS | Meow 36^./img/Recoil/famas_meow_36^0.63^#4b69ff",
-                "MAC-10 | Monkeyflage^./img/Recoil/mac10_monkeyflage^0.32^#4b69ff",
-                "Galil AR | Destroyer^./img/Recoil/galilar_destroyer^0.42^#4b69ff",
-                "UMP-45 | Roadblock^./img/Recoil/ump45_roadblock^0.23^#4b69ff",
-                "Negev | Drop Me^./img/Recoil/negev_drop_me^0.42^#4b69ff"
-            ]
-    
-    
-            idforbutton += 1
-            var randomitem = items[Math.floor(Math.random() * items.length)];
-            let iteminfo = randomitem.split("^")
-            let curritems = document.getElementById("itemstext").innerHTML;
-            document.getElementById("itemstext").innerHTML = `${curritems}<div id=""class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' class="clearbutton" onClick="reply_click(this.id)"><img draggable="false" src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
+            
+            let ranum = Math.floor(Math.random() * (+201 - 1)) + 1;
+            
+            if (ranum > blueL && ranum < blueH) {
+                RecoilBlue()
+            }
+
+            if (ranum > purpleL && ranum < purpleH) {
+                RecoilPurple()
+            }
+
+            if (ranum > pinkL && ranum < pinkH) {
+                RecoilPink()
+            }
+
+            if (ranum > redL && ranum < redH) {
+                RecoilRed()
+            }
+
         }
 
     }
 </script>
+
+<script src="RecoilCase.js"></script>
+
 </html>
