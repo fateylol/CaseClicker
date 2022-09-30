@@ -16,7 +16,7 @@
     <div class="header"><h1>$</h1><h1 id="money">0.00</h1></div>
     <div class="container">
         <div class="onrow">
-            <div class="leftmenu"><button class="clearbutton" onclick="open123()"><img draggable="false" src="./img/Recoil/case1.png" style="height:200px"><h2>Recoil Case</h2>Key Price: $2,50 | Case Price: $1,28</button></div>
+            <div class="leftmenu"><button class="clearbutton" onclick="open123()"><img draggable="false" src="./img/Recoil/case1.png" style="height:200px"><h2>Recoil Case</h2><div class="makestringrow"><p>Key Price: $</p><p id="caseprice">2.50</p><p>|</p><p>Key Price: $</p><p id="keyprice">1.28</p></div></button></div>
             <button class="clearbutton1" onclick="shoot()"><div class="btnspace"></div></button>
         </div>
         <div id ="itemstext"class="mainpart">
@@ -57,8 +57,13 @@
         let currMoney = document.getElementById("money").innerHTML
         let sumFL = parseFloat(currMoney)
 
-        if (sumFL > 4.00) {
-            let newsum = currMoney - 4.00
+        let cprice = parseFloat(document.getElementById("caseprice").innerHTML)
+        let kprice = parseFloat(document.getElementById("keyprice").innerHTML)
+        let minusamount = cprice + kprice
+        
+        if (sumFL > minusamount) {
+            let newsum = currMoney - minusamount
+            
             document.getElementById("money").innerHTML = `${(Math.round(newsum * 100))/ 100}`
     
     
