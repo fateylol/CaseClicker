@@ -14,6 +14,21 @@
 </head>
 <body>
 
+    <div id="menu8" class="bg-color" style="visibility:hidden;">
+        <div id ="weaponwin1"class="bg-modal">
+            <div class="container-modal">
+                <h3>Cheat Menu</h3>
+                <h4>Money</h4>
+                <input id="moneyinput" class="input"placeholder="Amount" autocomplete="off">
+                <button class="confirmbutton" onclick="setmoney()">Set</button>
+                <h4>Teammate (Auto Clicker)</h4>
+                <input id="acinput" class="input"placeholder="Amount per second" autocomplete="off">
+                <button class="confirmbutton" onclick="setac()">Set</button>
+                <button class="confirmbutton" onclick="close3()">Close</button>
+            </div>
+        </div>
+    </div>
+
     <div id="menu7" class="bg-color" style="visibility:hidden;">
         <div id ="weaponwin1"class="bg-modal">
             <div class="container-modal">
@@ -31,7 +46,7 @@
         <div class="bg-modal2">
             <div class="container-modal">
                 <h3>Username</h3>
-                <input id="nameinput"class="input"placeholder="Your name">
+                <input id="nameinput" class="input"placeholder="Your name" autocomplete="off">
                 <button class="confirmbutton" onclick="closenameinput()">CONFIRM</button>
             </div>
         </div>
@@ -100,6 +115,15 @@
                     <h4>Auto Clicker:</h4>
                     <button class="settingbutton" id="acstate" onclick="toggleac()"style="background-color:green;border-color:green;border-radius:4px;">Enabled</button>
                 </div>
+                <div class="settings">
+                    <h4>Sound Effects:</h4>
+                    <button class="settingbutton" id="sestate" onclick="togglesounds()"style="background-color:green;border-color:green;border-radius:4px;">Enabled</button>
+                </div>
+
+                    <h4>Cheat Codes</h4>
+                    <input id="ccinput" class="input" type="password"placeholder="Enter code here" autocomplete="off">
+                    <button class="settingbutton" id="sestate" onclick="submitcc()"style="background-color:green;border-color:green;border-radius:4px;">Submit</button>
+                    
                 <button class="confirmbutton" onclick="closesettings()">Close</button>
             </div>
         </div>
@@ -125,10 +149,10 @@
             <div class="displayicons">
                 <h2>INVENTORY</h2>
                 <div>
-                    <button class="settingbutton1" onclick="openstatsmenu()"><img src="stats.png" style="height:29px;"></button>
-                    <button class="settingbutton1" onclick="opencasesmenu()"><img src="case.png" style="height:29px;"></button>
-                    <button class="settingbutton1" onclick="openupgrades()"><img src="upgrade.png" style="height:29px;"></button>
-                    <button class="settingbutton2" onclick="opensettings()"><img src="3953226.png" style="height:29px;"></button>
+                    <button class="settingbutton1" title="Stats" onclick="openstatsmenu()"><img src="stats.png" style="height:29px;"></button>
+                    <button class="settingbutton1" title="Cases" onclick="opencasesmenu()"><img src="case.png" style="height:29px;"></button>
+                    <button class="settingbutton1" title="Upgrades" onclick="openupgrades()"><img src="upgrade.png" style="height:29px;"></button>
+                    <button class="settingbutton2" title="Settings" onclick="opensettings()"><img src="3953226.png" style="height:29px;"></button>
                 </div>
             </div>
             <div id ="itemstext"class="mainpart"></div>
@@ -147,16 +171,95 @@
     var shotsfired = 0
     var headshots = 0
 
+    function setac() {
+        let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('click.mp3');
+                audio.volume = 0.4;
+                audio.play();
+            }
+        let acvalentered = document.getElementById("acinput").value
+
+        if (!isNaN(acvalentered)) {
+            autoclicker = acvalentered
+            document.getElementById("acinput").value = ""
+        }
+    }
+
+    function setmoney() {
+        let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('click.mp3');
+                audio.volume = 0.4;
+                audio.play();
+            }
+        let moneyvalentered = document.getElementById("moneyinput").value
+
+        if (!isNaN(moneyvalentered)) {
+            document.getElementById("money").innerHTML = `${moneyvalentered}`
+            document.getElementById("moneyinput").value = ""
+        }
+    }
+
+    function close3() {
+        document.getElementById("menu8").style.visibility = "hidden";
+        let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('click.mp3');
+                audio.volume = 0.4;
+                audio.play();
+            }
+    }
+
+    function submitcc() {
+        let valuesentered = document.getElementById("ccinput").value
+
+        let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('click.mp3');
+                audio.volume = 0.4;
+                audio.play();
+            }
+        if (valuesentered == cheatcode) {
+            document.getElementById("ccinput").value = ""
+            document.getElementById("ccinput").placeholder = "Enter code here"
+            document.getElementById("menu1").style.visibility = "hidden";
+            document.getElementById("menu8").style.visibility = "visible";
+        } else {
+            document.getElementById("ccinput").value = ""
+            document.getElementById("ccinput").placeholder = "Wrong code was entered."
+        }
+    }
+
     function closestats() {
         document.getElementById("menu7").style.visibility = "hidden";
+        let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('click.mp3');
+                audio.volume = 0.4;
+                audio.play();
+            }
     }
 
     function openstatsmenu() {
         document.getElementById("menu7").style.visibility = "visible";
+        let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('click.mp3');
+                audio.volume = 0.4;
+                audio.play();
+            }
     }
 
     function closenameinput() {
         let name = document.getElementById("nameinput").value
+
+        let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('click.mp3');
+                audio.volume = 0.4;
+                audio.play();
+            }
 
         if (name == "") {
             document.getElementById("nameinput").placeholder = "Can't be empty!"
@@ -168,7 +271,7 @@
 
     function selectcobble() {
         document.getElementById("currcase").innerHTML = "Cobblestone"
-        document.getElementById("caseprice").innerHTML = "1515"
+        document.getElementById("caseprice").innerHTML = "1515.42"
         document.getElementById("keyprice").innerHTML = "0"
         document.getElementById("caseimg").src = "./img/Cobblestone/cobblestone.png"
     }
@@ -189,19 +292,40 @@
 
     function opencasesmenu() {
         document.getElementById("menu4").style.visibility = "visible";
+        let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('click.mp3');
+                audio.volume = 0.4;
+                audio.play();
+            }
     }
 
     function iunderstand() {
         document.getElementById("menu5").style.visibility = "hidden";
+        let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('click.mp3');
+                audio.volume = 0.4;
+                audio.play();
+            }
     }
 
     function closecasesmenu() {
         document.getElementById("menu4").style.visibility = "hidden";
+        let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('click.mp3');
+                audio.volume = 0.4;
+                audio.play();
+            }
     }
 
     function upgradetf() {
         let currMoney = document.getElementById("money").innerHTML
         if (currMoney > triggerfingerprice) {
+            var audio = new Audio('upgrade.mp3');
+            audio.volume = 0.2;
+            audio.play();
             let sum = currMoney - triggerfingerprice
             document.getElementById("money").innerHTML = `${(Math.round(sum * 100))/ 100}`
             triggerfingerprice = triggerfingerprice * 3.0
@@ -226,9 +350,26 @@
         }
     }
 
+    function togglesounds() {
+        let state = document.getElementById("sestate").textContent
+        
+        if (state == "Enabled") {
+            document.getElementById("sestate").textContent = "Disabled"
+            document.getElementById("sestate").style.backgroundColor = "red"
+            document.getElementById("sestate").style.borderColor = "red"
+        } else {
+            document.getElementById("sestate").textContent = "Enabled"
+            document.getElementById("sestate").style.backgroundColor = "green"
+            document.getElementById("sestate").style.borderColor = "green"
+        }
+    }
+
     function upgradeac() {
         let currMoney = document.getElementById("money").innerHTML
         if (currMoney > autoclickprice) {
+            var audio = new Audio('upgrade.mp3');
+            audio.volume = 0.2;
+            audio.play();
             let sum = currMoney - autoclickprice
             document.getElementById("money").innerHTML = `${(Math.round(sum * 100))/ 100}`
             autoclickprice = autoclickprice * 3
@@ -240,14 +381,32 @@
 
     function closesettings() {
         document.getElementById("menu1").style.visibility = "hidden";
+        let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('click.mp3');
+                audio.volume = 0.4;
+                audio.play();
+            }
     }
 
     function opensettings() {
         document.getElementById("menu1").style.visibility = "visible";
+        let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('click.mp3');
+                audio.volume = 0.4;
+                audio.play();
+            }
     }
 
     function closeupgrades() {
         document.getElementById("menu3").style.visibility = "hidden";
+        let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('click.mp3');
+                audio.volume = 0.4;
+                audio.play();
+            }
     }
 
     function openupgrades() {
@@ -257,7 +416,12 @@
         document.getElementById("triggerfingervalue").innerHTML = `Trigger Finger ($${(Math.round(triggerfinger * 100))/ 100} > $${(Math.round(sum1 * 100))/ 100} P.Sec)`
         document.getElementById("upgrade2").textContent = `UPGRADE ($${triggerfingerprice})`
 
-
+        let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('click.mp3');
+                audio.volume = 0.4;
+                audio.play();
+            }
 
         document.getElementById("menu3").style.visibility = "visible";
     }
@@ -278,29 +442,43 @@
 
     function closemenu() {
         document.getElementById("menu").style.visibility = "hidden";
+
+        let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('click.mp3');
+                audio.volume = 0.4;
+                audio.play();
+            }
     }
 
     function shoot() {
         shotsfired ++;
 
         let ranum = Math.floor(Math.random() * (+10 - 1)) + 1;
-        
-        var audio = new Audio('ak.mp3');
-        audio.volume = 0.1;
-        audio.play();
+        let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('ak.mp3');
+                audio.volume = 0.1;
+                audio.play();
+            }
+        var multi = 1
 
         if (ranum == 4) {
             headshots ++;
             document.getElementById("headshotsstats").innerHTML = `Headshots: ${headshots}.`
-            var audio = new Audio('hs.mp3');
-            audio.volume = 0.1;
-            audio.play();
+            let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('hs.mp3');
+                audio.volume = 0.1;
+                audio.play();
+            }
+            multi = 2
         }
 
         let currMoney = document.getElementById("money").innerHTML
         let sumFL = parseFloat(currMoney)
 
-        let newsum1 = sumFL + triggerfinger
+        let newsum1 = sumFL + triggerfinger * multi
         document.getElementById("money").innerHTML = `${(Math.round(newsum1 * 100))/ 100}`
     }
     
@@ -403,6 +581,7 @@
     }
 </script>
 
+<script src="dataAos.js"></script>
 <script src="CobblestonePackage.js"></script>
 <script src="BravoCase.js"></script>
 <script src="RecoilCase.js"></script>

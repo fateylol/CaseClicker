@@ -21,6 +21,12 @@ function BravoBlue() {
         document.getElementById("newitemimg").src = `${iteminfo[1]}.png`
         document.getElementById("weaponwin").style.borderColor = `${iteminfo[3]}`
     
+        let state = document.getElementById("sestate").textContent
+        if (state == "Enabled") {
+            var audio = new Audio('unbox.mp3');
+                audio.volume = 0.6;
+                audio.play();
+        }
     
         document.getElementById("menu").style.visibility = "visible";
     }
@@ -51,6 +57,12 @@ function BravoPurple() {
         document.getElementById("newitemimg").src = `${iteminfo[1]}.png`
         document.getElementById("weaponwin").style.borderColor = `${iteminfo[3]}`
     
+        let state = document.getElementById("sestate").textContent
+        if (state == "Enabled") {
+            var audio = new Audio('unbox.mp3');
+                audio.volume = 0.6;
+                audio.play();
+        }
     
         document.getElementById("menu").style.visibility = "visible";
     }
@@ -75,6 +87,12 @@ function BravoPink() {
         document.getElementById("newitemimg").src = `${iteminfo[1]}.png`
         document.getElementById("weaponwin").style.borderColor = `${iteminfo[3]}`
     
+        let state = document.getElementById("sestate").textContent
+        if (state == "Enabled") {
+            var audio = new Audio('unbox.mp3');
+                audio.volume = 0.6;
+                audio.play();
+        }
     
         document.getElementById("menu").style.visibility = "visible";
     }
@@ -95,11 +113,18 @@ function BravoRed() {
     
     let state = document.getElementById("popupstate").textContent
         
+    
     if (state == "Enabled") {
         document.getElementById("newitemname").textContent = `${iteminfo[0]}`
         document.getElementById("newitemimg").src = `${iteminfo[1]}.png`
         document.getElementById("weaponwin").style.borderColor = `${iteminfo[3]}`
     
+        let state = document.getElementById("sestate").textContent
+        if (state == "Enabled") {
+            var audio = new Audio('unbox.mp3');
+                audio.volume = 0.6;
+                audio.play();
+        }
     
         document.getElementById("menu").style.visibility = "visible";
     }

@@ -24,7 +24,12 @@ function CobblestoneBlue() {
         document.getElementById("newitemimg").src = `${iteminfo[1]}.png`
         document.getElementById("weaponwin").style.borderColor = `${iteminfo[3]}`
     
-    
+        let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('unbox.mp3');
+                    audio.volume = 0.6;
+                    audio.play();
+            }
         document.getElementById("menu").style.visibility = "visible";
     }
 
@@ -60,6 +65,12 @@ function CobblestonePurple() {
         document.getElementById("newitemimg").src = `${iteminfo[1]}.png`
         document.getElementById("weaponwin").style.borderColor = `${iteminfo[3]}`
     
+        let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('unbox.mp3');
+                    audio.volume = 0.6;
+                    audio.play();
+            }
     
         document.getElementById("menu").style.visibility = "visible";
     }
@@ -84,6 +95,12 @@ function CobblestonePink() {
         document.getElementById("newitemimg").src = `${iteminfo[1]}.png`
         document.getElementById("weaponwin").style.borderColor = `${iteminfo[3]}`
     
+        let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('unbox.mp3');
+                    audio.volume = 0.6;
+                    audio.play();
+            }
     
         document.getElementById("menu").style.visibility = "visible";
     }
@@ -109,6 +126,12 @@ function CobblestoneRed() {
         document.getElementById("newitemimg").src = `${iteminfo[1]}.png`
         document.getElementById("weaponwin").style.borderColor = `${iteminfo[3]}`
     
+        let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('unbox.mp3');
+                    audio.volume = 0.6;
+                    audio.play();
+            }
     
         document.getElementById("menu").style.visibility = "visible";
     }

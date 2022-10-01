@@ -22,6 +22,12 @@ function RecoilBlue() {
         document.getElementById("newitemimg").src = `${iteminfo[1]}.png`
         document.getElementById("weaponwin").style.borderColor = `${iteminfo[3]}`
     
+        let state = document.getElementById("sestate").textContent
+        if (state == "Enabled") {
+            var audio = new Audio('unbox.mp3');
+                audio.volume = 0.6;
+                audio.play();
+        }
     
         document.getElementById("menu").style.visibility = "visible";
     }
@@ -52,7 +58,12 @@ function RecoilPurple() {
         document.getElementById("newitemimg").src = `${iteminfo[1]}.png`
         document.getElementById("weaponwin").style.borderColor = `${iteminfo[3]}`
     
-    
+        let state = document.getElementById("sestate").textContent
+        if (state == "Enabled") {
+            var audio = new Audio('unbox.mp3');
+                audio.volume = 0.6;
+                audio.play();
+        }
         document.getElementById("menu").style.visibility = "visible";
     }
     document.getElementById("itemstext").innerHTML = `${curritems}<div id=""class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' class="clearbutton" onClick="reply_click(this.id)"><img draggable="false" src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
@@ -77,7 +88,12 @@ function RecoilPink() {
         document.getElementById("newitemimg").src = `${iteminfo[1]}.png`
         document.getElementById("weaponwin").style.borderColor = `${iteminfo[3]}`
     
-    
+        let state = document.getElementById("sestate").textContent
+        if (state == "Enabled") {
+            var audio = new Audio('unbox.mp3');
+                audio.volume = 0.6;
+                audio.play();
+        }
         document.getElementById("menu").style.visibility = "visible";
     }
     document.getElementById("itemstext").innerHTML = `${curritems}<div id=""class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' class="clearbutton" onClick="reply_click(this.id)"><img draggable="false" src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
@@ -102,7 +118,12 @@ function RecoilRed() {
         document.getElementById("newitemimg").src = `${iteminfo[1]}.png`
         document.getElementById("weaponwin").style.borderColor = `${iteminfo[3]}`
     
-    
+        let state = document.getElementById("sestate").textContent
+        if (state == "Enabled") {
+            var audio = new Audio('unbox.mp3');
+                audio.volume = 0.6;
+                audio.play();
+        }
         document.getElementById("menu").style.visibility = "visible";
     }
     document.getElementById("itemstext").innerHTML = `${curritems}<div id=""class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' class="clearbutton" onClick="reply_click(this.id)"><img draggable="false" src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
