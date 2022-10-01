@@ -22,6 +22,10 @@
                     <h4 id="autoclickervalue">{LOADING}</h4>
                     <button class="settingbutton" id="upgrade1" onclick="upgradeac()"style="background-color:green;border-color:green;border-radius:4px;">{LOADING}</button>
                 </div>
+                <div class="settings">
+                    <h4 id="triggerfingervalue">{LOADING}</h4>
+                    <button class="settingbutton" id="upgrade2" onclick="upgradetf()"style="background-color:green;border-color:green;border-radius:4px;">{LOADING}</button>
+                </div>
                 <button class="confirmbutton" onclick="closeupgrades()">Close</button>
             </div>
         </div>
@@ -77,7 +81,22 @@
 
     var autoclickprice = 2.50
     var autoclicker = 0.10
+    var triggerfingerprice = 5.00
+    var triggerfinger = 0.10
     var amountpclick = 0.10
+
+    function upgradetf() {
+        let currMoney = document.getElementById("money").innerHTML
+        if (currMoney > triggerfingerprice) {
+            let sum = currMoney - triggerfingerprice
+            document.getElementById("money").innerHTML = `${(Math.round(sum * 100))/ 100}`
+            triggerfingerprice = triggerfingerprice * 3.0
+            triggerfinger = triggerfinger * 1.5
+            let sum3 = triggerfinger * 1.5
+        document.getElementById("triggerfingervalue").innerHTML = `Trigger Finger ($${(Math.round(triggerfinger * 100))/ 100} > $${(Math.round(sum3 * 100))/ 100} P.Sec)`
+            document.getElementById("upgrade2").textContent = `UPGRADE ($${triggerfingerprice})`
+        }
+    }
 
     function toggleac() {
         let state = document.getElementById("acstate").textContent
@@ -120,6 +139,12 @@
     function openupgrades() {
         document.getElementById("autoclickervalue").innerHTML = `Teammate ($${autoclicker} > $${autoclicker * 2} P.Sec)`
         document.getElementById("upgrade1").textContent = `UPGRADE ($${autoclickprice})`
+        let sum1 = triggerfinger * 1.5
+        document.getElementById("triggerfingervalue").innerHTML = `Trigger Finger ($${(Math.round(triggerfinger * 100))/ 100} > $${(Math.round(sum1 * 100))/ 100} P.Sec)`
+        document.getElementById("upgrade2").textContent = `UPGRADE ($${triggerfingerprice})`
+
+
+
         document.getElementById("menu3").style.visibility = "visible";
     }
 
@@ -145,7 +170,7 @@
         let currMoney = document.getElementById("money").innerHTML
         let sumFL = parseFloat(currMoney)
 
-        let newsum1 = sumFL + amountpclick
+        let newsum1 = sumFL + triggerfinger
         document.getElementById("money").innerHTML = `${(Math.round(newsum1 * 100))/ 100}`
     }
     
