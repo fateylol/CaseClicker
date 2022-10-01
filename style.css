@@ -156,6 +156,7 @@ p {
     display:flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 h3 {
@@ -228,4 +229,13 @@ h2 {
     margin:0%;
     color:white;
     font-family: 'Montserrat', sans-serif;
+}
+
+.casescontainer {
+    margin-top:5px;
+    width:100%;
+    height:120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

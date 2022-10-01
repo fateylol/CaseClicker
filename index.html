@@ -14,6 +14,30 @@
 </head>
 <body>
 
+    <div id="menu4" class="bg-color" style="visibility:visible;">
+        <div class="bg-modal">
+            <div class="container-modal">
+                <h3>Cases</h3>
+                <div class="casescontainer">
+                    <img src="case.png" style="width:25%;">
+                    <img src="case.png" style="width:25%;">
+                    <img src="case.png" style="width:25%;">
+                </div>
+                <div class="casescontainer">
+                    <img src="case.png" style="width:25%;">
+                    <img src="case.png" style="width:25%;">
+                    <img src="case.png" style="width:25%;">
+                </div>
+                <div class="casescontainer">
+                    <img src="case.png" style="width:25%;">
+                    <img src="case.png" style="width:25%;">
+                    <img src="case.png" style="width:25%;">
+                </div>
+                <button class="confirmbutton" onclick="closecasesmenu()">Close</button>
+            </div>
+        </div>
+    </div>
+
     <div id="menu3" class="bg-color" style="visibility:hidden;">
         <div class="bg-modal">
             <div class="container-modal">
@@ -68,7 +92,7 @@
             <div class="displayicons">
                 <h2>INVENTORY</h2>
                 <div>
-                    <button class="settingbutton1" onclick="switchcase()"><img src="case.png" style="height:29px;"></button>
+                    <button class="settingbutton1" onclick="opencasesmenu()"><img src="case.png" style="height:29px;"></button>
                     <button class="settingbutton1" onclick="openupgrades()"><img src="upgrade.png" style="height:29px;"></button>
                     <button class="settingbutton2" onclick="opensettings()"><img src="3953226.png" style="height:29px;"></button>
                 </div>
@@ -84,6 +108,14 @@
     var triggerfingerprice = 5.00
     var triggerfinger = 0.10
     var amountpclick = 0.10
+
+    function opencasesmenu() {
+        document.getElementById("menu4").style.visibility = "visible";
+    }
+
+    function closecasesmenu() {
+        document.getElementById("menu4").style.visibility = "hidden";
+    }
 
     function upgradetf() {
         let currMoney = document.getElementById("money").innerHTML
