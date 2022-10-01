@@ -184,6 +184,7 @@ h4 {
     padding-right:50px;
     padding-top: 5px;
     padding-bottom: 5px;
+    margin-top: 5px;
 }
 
 .settings {
@@ -233,9 +234,24 @@ h2 {
 
 .casescontainer {
     margin-top:5px;
-    width:100%;
+    width:95%;
     height:120px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.input {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+}
+
+.container-modal2 {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }

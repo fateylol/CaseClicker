@@ -14,24 +14,57 @@
 </head>
 <body>
 
-    <div id="menu4" class="bg-color" style="visibility:visible;">
+    <div id="menu7" class="bg-color" style="visibility:hidden;">
+        <div id ="weaponwin1"class="bg-modal">
+            <div class="container-modal">
+                <h3>Stats</h3>
+                <h4 id="usernametextstats">{LOADING}</h4>
+                <h4 id="playtimetextstats">{LOADING}</h4>
+                <h4 id="headshotsstats">{LOADING}</h4>
+                <h4 id="timesshotstats">{LOADING}</h4>
+                <button class="confirmbutton" onclick="closestats()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="menu6" class="bg-color" style="visibility:visible;">
+        <div class="bg-modal2">
+            <div class="container-modal">
+                <h3>Username</h3>
+                <input id="nameinput"class="input"placeholder="Your name">
+                <button class="confirmbutton" onclick="closenameinput()">CONFIRM</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="menu5" class="bg-color" style="visibility:hidden;">
+        <div class="bg-modal2">
+            <div class="container-modal">
+                <h3>Ohh no!</h3>
+                <h4>It seems like you can't afford this item.</h4>
+                <button class="confirmbutton" onclick="iunderstand()">I Understand</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="menu4" class="bg-color" style="visibility:hidden;">
         <div class="bg-modal">
             <div class="container-modal">
                 <h3>Cases</h3>
                 <div class="casescontainer">
-                    <img src="case.png" style="width:25%;">
-                    <img src="case.png" style="width:25%;">
-                    <img src="case.png" style="width:25%;">
+                    <button class="clearbutton" onclick="selectrecoil()"><img draggable="false" src="./img/Recoil/case1.png" style="width:100%;"></button>
+                    <button class="clearbutton" onclick="selectbravo()"><img draggable="false" src="./img/Bravo/bravo_case.png" style="width:100%;"></button>
+                    <button class="clearbutton" onclick="selectcobble()"><img draggable="false" src="./img/Cobblestone/cobblestone.png" style="width:100%;"></button>
                 </div>
                 <div class="casescontainer">
-                    <img src="case.png" style="width:25%;">
-                    <img src="case.png" style="width:25%;">
-                    <img src="case.png" style="width:25%;">
+                    <button class="clearbutton" onclick=""><img draggable="false" src="hidden_case.png" style="width:100%;"></button>
+                    <button class="clearbutton" onclick=""><img draggable="false" src="hidden_case.png" style="width:100%;"></button>
+                    <button class="clearbutton" onclick=""><img draggable="false" src="hidden_case.png" style="width:100%;"></button>
                 </div>
                 <div class="casescontainer">
-                    <img src="case.png" style="width:25%;">
-                    <img src="case.png" style="width:25%;">
-                    <img src="case.png" style="width:25%;">
+                    <button class="clearbutton" onclick=""><img draggable="false" src="hidden_case.png" style="width:100%;"></button>
+                    <button class="clearbutton" onclick=""><img draggable="false" src="hidden_case.png" style="width:100%;"></button>
+                    <button class="clearbutton" onclick=""><img draggable="false" src="hidden_case.png" style="width:100%;"></button>
                 </div>
                 <button class="confirmbutton" onclick="closecasesmenu()">Close</button>
             </div>
@@ -85,13 +118,14 @@
     <div class="header"><h1>$</h1><h1 classa="moneytext"id="money">0.00</h1></div>
     <div class="container">
         <div class="onrow">
-            <div class="leftmenu"><button class="clearbutton" onclick="open123()"><img draggable="false" src="./img/Recoil/case1.png" style="height:200px"><h2>Recoil Case</h2><div class="makestringrow"><p>Key Price: $</p><p id="caseprice">2.50</p><p>|</p><p>Key Price: $</p><p id="keyprice">1.28</p></div></button></div>
+            <div class="leftmenu"><button class="clearbutton" onclick="open123()"><img draggable="false" id="caseimg" src="./img/Recoil/case1.png" style="height:200px"><h2 id="currcase">Recoil Case</h2><center><div class="makestringrow"><p>Key Price: $</p><p id="caseprice">2.50</p><p>|</p><p>Key Price: $</p><p id="keyprice">1.28</p></div></button></div></center>
             <button class="clearbutton1" onclick="shoot()"><div class="btnspace"></div></button>
         </div>
         <div class="displaycontainer">
             <div class="displayicons">
                 <h2>INVENTORY</h2>
                 <div>
+                    <button class="settingbutton1" onclick="openstatsmenu()"><img src="stats.png" style="height:29px;"></button>
                     <button class="settingbutton1" onclick="opencasesmenu()"><img src="case.png" style="height:29px;"></button>
                     <button class="settingbutton1" onclick="openupgrades()"><img src="upgrade.png" style="height:29px;"></button>
                     <button class="settingbutton2" onclick="opensettings()"><img src="3953226.png" style="height:29px;"></button>
@@ -108,9 +142,57 @@
     var triggerfingerprice = 5.00
     var triggerfinger = 0.10
     var amountpclick = 0.10
+    var nameofbusiness = ""
+    var playtime = 0
+    var shotsfired = 0
+    var headshots = 0
+
+    function closestats() {
+        document.getElementById("menu7").style.visibility = "hidden";
+    }
+
+    function openstatsmenu() {
+        document.getElementById("menu7").style.visibility = "visible";
+    }
+
+    function closenameinput() {
+        let name = document.getElementById("nameinput").value
+
+        if (name == "") {
+            document.getElementById("nameinput").placeholder = "Can't be empty!"
+        } else {
+            nameofbusiness = name
+            document.getElementById("menu6").style.visibility = "hidden";
+        }
+    }
+
+    function selectcobble() {
+        document.getElementById("currcase").innerHTML = "Cobblestone"
+        document.getElementById("caseprice").innerHTML = "1515"
+        document.getElementById("keyprice").innerHTML = "0"
+        document.getElementById("caseimg").src = "./img/Cobblestone/cobblestone.png"
+    }
+
+    function selectrecoil() {
+        document.getElementById("currcase").innerHTML = "Recoil Case"
+        document.getElementById("caseprice").innerHTML = "1.28"
+        document.getElementById("keyprice").innerHTML = "2.20"
+        document.getElementById("caseimg").src = "./img/Recoil/case1.png"
+    }
+
+    function selectbravo() {
+        document.getElementById("currcase").innerHTML = "Bravo Case"
+        document.getElementById("caseprice").innerHTML = "49.32"
+        document.getElementById("keyprice").innerHTML = "2.20"
+        document.getElementById("caseimg").src = "./img/Bravo/bravo_case.png"
+    }
 
     function opencasesmenu() {
         document.getElementById("menu4").style.visibility = "visible";
+    }
+
+    function iunderstand() {
+        document.getElementById("menu5").style.visibility = "hidden";
     }
 
     function closecasesmenu() {
@@ -199,6 +281,22 @@
     }
 
     function shoot() {
+        shotsfired ++;
+
+        let ranum = Math.floor(Math.random() * (+10 - 1)) + 1;
+        
+        var audio = new Audio('ak.mp3');
+        audio.volume = 0.1;
+        audio.play();
+
+        if (ranum == 4) {
+            headshots ++;
+            document.getElementById("headshotsstats").innerHTML = `Headshots: ${headshots}.`
+            var audio = new Audio('hs.mp3');
+            audio.volume = 0.1;
+            audio.play();
+        }
+
         let currMoney = document.getElementById("money").innerHTML
         let sumFL = parseFloat(currMoney)
 
@@ -252,32 +350,49 @@
             document.getElementById("money").innerHTML = `${(Math.round(newsum * 100))/ 100}`
             
             let ranum = Math.floor(Math.random() * (+201 - 1)) + 1;
+
+            let case12 = document.getElementById("currcase").innerHTML
+            let case12name = case12.split(" ")
             
             if (ranum > blueL && ranum < blueH) {
-                RecoilBlue()
+                window[`${case12name[0]}Blue`]();
             }
 
             if (ranum > purpleL && ranum < purpleH) {
-                RecoilPurple()
+                window[`${case12name[0]}Purple`]();
             }
 
             if (ranum > pinkL && ranum < pinkH) {
-                RecoilPink()
+                window[`${case12name[0]}Pink`]();
             }
 
             if (ranum > redL && ranum < redH) {
-                RecoilRed()
+                window[`${case12name[0]}Red`]();
             }
 
+        } else {
+            let state = document.getElementById("popupstate").textContent
+        
+            if (state == "Enabled") {
+                document.getElementById("menu5").style.visibility = "visible";
+            }
         }
 
     }
 
     var timer = setInterval(myTimer, 1000);
 
-    function myTimer(){ 
-        let state = document.getElementById("acstate").textContent
+    function myTimer(){
 
+        
+        playtime ++;
+        document.getElementById("usernametextstats").innerHTML = `Username: ${nameofbusiness}.`
+        document.getElementById("playtimetextstats").innerHTML = `Playtime: ${playtime} seconds.`
+        document.getElementById("headshotsstats").innerHTML = `Headshots: ${headshots}.`
+        document.getElementById("timesshotstats").innerHTML = `Shots fired: ${shotsfired}.`
+        
+        let state = document.getElementById("acstate").textContent
+        
         if (state == "Enabled") {
             let currMoney = document.getElementById("money").innerHTML
             currMoneyFL = parseFloat(currMoney)
@@ -288,6 +403,8 @@
     }
 </script>
 
+<script src="CobblestonePackage.js"></script>
+<script src="BravoCase.js"></script>
 <script src="RecoilCase.js"></script>
 
 </html>
