@@ -88,7 +88,7 @@ div {
 
 h1 {
     font-size: 30px;
-    color:white;
+    color: rgb(0, 255, 0);
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -98,7 +98,6 @@ h1 {
     flex-wrap: wrap;
     align-content:flex-start;
     width:100%;
-    background-color: rgb(32, 32, 43);
 }
 
 .minitext {
@@ -192,4 +191,39 @@ h4 {
 
 .settingbutton {
     margin-left: 5px;
+}
+
+.settingbutton1 {
+    background-color: rgba(0, 0, 0, 0);
+    border-style: none;
+    padding:0%;
+}
+
+.settingbutton2 {
+    background-color: rgba(0, 0, 0, 0);
+    border-style: none;
+    padding-left: 0%;;
+    padding-right:7px;
+}
+
+.displaycontainer {
+    width:100%;
+    height:100%;
+}
+
+.displayicons {
+    width:100%;
+    height:3%;
+    background-color: rgb(34, 38, 56);
+    display: flex;
+    flex-direction: row;
+    margin:0%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h2 {
+    margin:0%;
+    color:white;
+    font-family: 'Montserrat', sans-serif;
 }
