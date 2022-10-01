@@ -13,13 +13,31 @@
     <title>Case Clicker</title>
 </head>
 <body>
-    <div id="menu1" class="bg-color" style="visibility:visible;">
+
+    <div id="menu3" class="bg-color" style="visibility:hidden;">
+        <div class="bg-modal">
+            <div class="container-modal">
+                <h3>Upgrades</h3>
+                <div class="settings">
+                    <h4 id="autoclickervalue">{LOADING}</h4>
+                    <button class="settingbutton" id="upgrade1" onclick="upgradeac()"style="background-color:green;border-color:green;border-radius:4px;">{LOADING}</button>
+                </div>
+                <button class="confirmbutton" onclick="closeupgrades()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="menu1" class="bg-color" style="visibility:hidden;">
         <div id ="weaponwin1"class="bg-modal">
             <div class="container-modal">
                 <h3>Settings</h3>
                 <div class="settings">
                     <h4>Popups:</h4>
                     <button class="settingbutton" id="popupstate" onclick="togglepopup()"style="background-color:green;border-color:green;border-radius:4px;">Enabled</button>
+                </div>
+                <div class="settings">
+                    <h4>Auto Clicker:</h4>
+                    <button class="settingbutton" id="acstate" onclick="toggleac()"style="background-color:green;border-color:green;border-radius:4px;">Enabled</button>
                 </div>
                 <button class="confirmbutton" onclick="closesettings()">Close</button>
             </div>
@@ -57,7 +75,35 @@
 </body>
 <script>
 
+    var autoclickprice = 2.50
+    var autoclicker = 0.10
     var amountpclick = 0.10
+
+    function toggleac() {
+        let state = document.getElementById("acstate").textContent
+        
+        if (state == "Enabled") {
+            document.getElementById("acstate").textContent = "Disabled"
+            document.getElementById("acstate").style.backgroundColor = "red"
+            document.getElementById("acstate").style.borderColor = "red"
+        } else {
+            document.getElementById("acstate").textContent = "Enabled"
+            document.getElementById("acstate").style.backgroundColor = "green"
+            document.getElementById("acstate").style.borderColor = "green"
+        }
+    }
+
+    function upgradeac() {
+        let currMoney = document.getElementById("money").innerHTML
+        if (currMoney > autoclickprice) {
+            let sum = currMoney - autoclickprice
+            document.getElementById("money").innerHTML = `${(Math.round(sum * 100))/ 100}`
+            autoclickprice = autoclickprice * 3
+            autoclicker = autoclicker * 2
+            document.getElementById("autoclickervalue").innerHTML = `Teammate ($${autoclicker} > $${autoclicker * 2} P.Sec)`
+            document.getElementById("upgrade1").textContent = `UPGRADE ($${autoclickprice})`
+        }
+    }
 
     function closesettings() {
         document.getElementById("menu1").style.visibility = "hidden";
@@ -65,6 +111,16 @@
 
     function opensettings() {
         document.getElementById("menu1").style.visibility = "visible";
+    }
+
+    function closeupgrades() {
+        document.getElementById("menu3").style.visibility = "hidden";
+    }
+
+    function openupgrades() {
+        document.getElementById("autoclickervalue").innerHTML = `Teammate ($${autoclicker} > $${autoclicker * 2} P.Sec)`
+        document.getElementById("upgrade1").textContent = `UPGRADE ($${autoclickprice})`
+        document.getElementById("menu3").style.visibility = "visible";
     }
 
     function togglepopup() {
@@ -158,6 +214,20 @@
 
         }
 
+    }
+
+    var timer = setInterval(myTimer, 1000);
+
+    function myTimer(){ 
+        let state = document.getElementById("acstate").textContent
+
+        if (state == "Enabled") {
+            let currMoney = document.getElementById("money").innerHTML
+            currMoneyFL = parseFloat(currMoney)
+            autoclickerFL = parseFloat(autoclicker)
+            let sum = currMoneyFL + autoclickerFL
+            document.getElementById("money").innerHTML = `${(Math.round(sum * 100))/ 100}`
+        }
     }
 </script>
 
