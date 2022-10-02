@@ -37,12 +37,13 @@
                 <h4 id="playtimetextstats">{LOADING}</h4>
                 <h4 id="headshotsstats">{LOADING}</h4>
                 <h4 id="timesshotstats">{LOADING}</h4>
+                <h4 id="casesopened">{LOADING}</h4>
                 <button class="confirmbutton" onclick="closestats()">Close</button>
             </div>
         </div>
     </div>
 
-    <div id="menu6" class="bg-color" style="visibility:visible;">
+    <div id="menu6" class="bg-color" style="visibility:hidden;">
         <div class="bg-modal2">
             <div class="container-modal">
                 <h3>Username</h3>
@@ -170,6 +171,7 @@
     var playtime = 0
     var shotsfired = 0
     var headshots = 0
+    var casesopened = 0
 
     function setac() {
         let state = document.getElementById("sestate").textContent
@@ -510,7 +512,7 @@
         let minusamount = cprice + kprice
 
         // DROP RATES //
-        let blueL = -2
+        let blueL = 0
         let blueH = 150
 
         let purpleL = 150
@@ -525,6 +527,8 @@
         if (sumFL > minusamount) {
             let newsum = currMoney - minusamount
             
+            casesopened ++;
+
             document.getElementById("money").innerHTML = `${(Math.round(newsum * 100))/ 100}`
             
             let ranum = Math.floor(Math.random() * (+201 - 1)) + 1;
@@ -564,6 +568,7 @@
 
         
         playtime ++;
+        document.getElementById("casesopened").innerHTML = `Cases Opened: ${casesopened}`
         document.getElementById("usernametextstats").innerHTML = `Username: ${nameofbusiness}.`
         document.getElementById("playtimetextstats").innerHTML = `Playtime: ${playtime} seconds.`
         document.getElementById("headshotsstats").innerHTML = `Headshots: ${headshots}.`
