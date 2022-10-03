@@ -128,3 +128,40 @@ function RecoilRed() {
     }
     document.getElementById("itemstext").innerHTML = `${curritems}<div id=""class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' class="clearbutton" onClick="reply_click(this.id)"><img draggable="false" src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
 }
+
+function RecoilGold() {
+    var items = [
+        "Broken Fang Gloves | Jade^./img/Recoil/broken_fang_jade^765.23^#caab05",
+        "Broken Fang Gloves | Yellow Banded^./img/Recoil/broken_fang_yellow_banded^293.43^#caab05",
+        "Driver Gloves | Snow Leopard^./img/Recoil/driver_gloves_snow_leopard^1334.32^#caab05",
+        "Hand Wraps | CAUTION!^./img/Recoil/hand_wraps_caution^594.32^#caab05",
+        "Moto Gloves | Finish Line^./img/Recoil/moto_gloves_finish_line^2923.32^#caab05",
+        "Moto Gloves | Smoke Out^./img/Recoil/moto_gloves_smoke_out^593.43^#caab05",
+        "Specialist Gloves | Marble Fade^./img/Recoil/special_gloves_marble_fade^1243.32^#caab05",
+    ]
+
+
+    idforbutton += 1
+    var randomitem = items[Math.floor(Math.random() * items.length)];
+    let iteminfo = randomitem.split("^")
+    let curritems = document.getElementById("itemstext").innerHTML;
+    
+    let state = document.getElementById("popupstate").textContent
+        
+    
+    if (state == "Enabled") {
+        document.getElementById("newitemname").textContent = `${iteminfo[0]}`
+        document.getElementById("newitemimg").src = `${iteminfo[1]}.png`
+        document.getElementById("weaponwin").style.borderColor = `${iteminfo[3]}`
+    
+        let state = document.getElementById("sestate").textContent
+        if (state == "Enabled") {
+            var audio = new Audio('unbox.mp3');
+                audio.volume = 0.6;
+                audio.play();
+        }
+    
+        document.getElementById("menu").style.visibility = "visible";
+    }
+    document.getElementById("itemstext").innerHTML = `${curritems}<div id=""class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' class="clearbutton" onClick="reply_click(this.id)"><img draggable="false" src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
+}

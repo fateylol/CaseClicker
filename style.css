@@ -254,3 +254,10 @@ h2 {
     align-items: center;
     width: 100%;
 }
+
+.online {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}

@@ -349,17 +349,20 @@
         let minusamount = cprice + kprice
 
         // DROP RATES //
-        let blueL = 0
+        let blueL = -5
         let blueH = 150
 
         let purpleL = 150
         let purpleH = 180
 
         let pinkL = 180
-        let pinkH = 197
+        let pinkH = 190
 
-        let redL = 197
-        let redH = 205
+        let redL = 190
+        let redH = 195
+
+        let goldL = 195
+        let goldH = 205
         
         if (sumFL > minusamount) {
             let newsum = currMoney - minusamount
@@ -389,6 +392,10 @@
                 window[`${case12name[0]}Red`]();
             }
 
+            if (ranum > goldL && ranum < goldH) {
+                window[`${case12name[0]}Gold`]();
+            }
+
         } else {
             let state = document.getElementById("popupstate").textContent
         
@@ -415,8 +422,8 @@
         
         if (state == "Enabled") {
             let currMoney = document.getElementById("money").innerHTML
-            currMoneyFL = parseFloat(currMoney)
-            autoclickerFL = parseFloat(autoclicker)
+            let currMoneyFL = parseFloat(currMoney)
+            let autoclickerFL = parseFloat(autoclicker)
             let sum = currMoneyFL + autoclickerFL
             document.getElementById("money").innerHTML = `${(Math.round(sum * 100))/ 100}`
         }
