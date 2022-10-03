@@ -33,7 +33,7 @@ function RecoilBlue() {
     }
 
 
-    document.getElementById("itemstext").innerHTML = `${curritems}<div id=""class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' class="clearbutton" onClick="reply_click(this.id)"><img draggable="false" src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
+    document.getElementById("itemstext").innerHTML = `${curritems}<div class="itembg"  title='${iteminfo[0]}' style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' onmouseover="itemhover(this)" onmouseleave="exithover(this)"  class="clearbutton5" title='${iteminfo[0]}'  onClick="reply_click(this.id)"><img draggable="false" class="hovermenu"  src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}<button id = "equipbutton" style="visibility:hidden;">Equip</button></button></div>`;
 }
 
 function RecoilPurple() {
@@ -66,7 +66,7 @@ function RecoilPurple() {
         }
         document.getElementById("menu").style.visibility = "visible";
     }
-    document.getElementById("itemstext").innerHTML = `${curritems}<div id=""class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' class="clearbutton" onClick="reply_click(this.id)"><img draggable="false" src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
+    document.getElementById("itemstext").innerHTML = `${curritems}<div class="itembg"  title='${iteminfo[0]}' style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' onmouseover="itemhover(this)" onmouseleave="exithover(this)" class="clearbutton5" title='${iteminfo[0]}'  onClick="reply_click(this.id)"><img draggable="false" class="hovermenu"  src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
 }
 
 function RecoilPink() {
@@ -96,7 +96,7 @@ function RecoilPink() {
         }
         document.getElementById("menu").style.visibility = "visible";
     }
-    document.getElementById("itemstext").innerHTML = `${curritems}<div id=""class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' class="clearbutton" onClick="reply_click(this.id)"><img draggable="false" src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
+    document.getElementById("itemstext").innerHTML = `${curritems}<div   title='${iteminfo[0]}' class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' onmouseover="itemhover(this)" onmouseleave="exithover(this)" class="clearbutton5" title='${iteminfo[0]}'  onClick="reply_click(this.id)"><img draggable="false" class="hovermenu"  src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
 }
 
 function RecoilRed() {
@@ -126,13 +126,13 @@ function RecoilRed() {
         }
         document.getElementById("menu").style.visibility = "visible";
     }
-    document.getElementById("itemstext").innerHTML = `${curritems}<div id=""class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' class="clearbutton" onClick="reply_click(this.id)"><img draggable="false" src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
+    document.getElementById("itemstext").innerHTML = `${curritems}<div   title='${iteminfo[0]}' class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' onmouseover="itemhover(this)" onmouseleave="exithover(this)" class="clearbutton5" title='${iteminfo[0]}'  onClick="reply_click(this.id)"><img draggable="false" class="hovermenu"  src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
 }
 
 function RecoilGold() {
     var items = [
-        "Broken Fang Gloves | Jade^./img/Recoil/broken_fang_jade^765.23^#caab05",
-        "Broken Fang Gloves | Yellow Banded^./img/Recoil/broken_fang_yellow_banded^293.43^#caab05",
+        "Broken Fang | Jade^./img/Recoil/broken_fang_jade^765.23^#caab05",
+        "Broken Fang | Yellow Banded^./img/Recoil/broken_fang_yellow_banded^293.43^#caab05",
         "Driver Gloves | Snow Leopard^./img/Recoil/driver_gloves_snow_leopard^1334.32^#caab05",
         "Hand Wraps | CAUTION!^./img/Recoil/hand_wraps_caution^594.32^#caab05",
         "Moto Gloves | Finish Line^./img/Recoil/moto_gloves_finish_line^2923.32^#caab05",
@@ -163,5 +163,5 @@ function RecoilGold() {
     
         document.getElementById("menu").style.visibility = "visible";
     }
-    document.getElementById("itemstext").innerHTML = `${curritems}<div id=""class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' class="clearbutton" onClick="reply_click(this.id)"><img draggable="false" src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
+    document.getElementById("itemstext").innerHTML = `${curritems}<div title='${iteminfo[0]}' class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><a><button id='${idforbutton}' onmouseover="itemhover(this)" onmouseleave="exithover(this)" class="clearbutton5" onClick="reply_click(this.id)"><img draggable="false"  class="hovermenu" src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
 }

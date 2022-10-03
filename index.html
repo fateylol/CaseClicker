@@ -161,7 +161,7 @@
             <button class="clearbutton1" onclick="shoot()"><div class="btnspace"></div>
                     <h4>AK-47</h4>
                     <div class="online">
-                        <div><h5>PRICE PER SECOND BOOST: $</h5></div>
+                        <div><h5>Boost per second: $</h5></div>
                         <h5>0.10</h5>
                     </div>
             </button>
@@ -181,6 +181,17 @@
         </div>
     </div>
 </body>
+
+<script>
+function itemhover(item) {
+    console.log("ENTER")
+}
+
+function exithover(item) {
+    console.log(document.getElementById(item.id).textContent)
+}
+</script>
+
 <script src="functions.js"></script>
 <script src="dataAos.js"></script>
 <script src="CobblestonePackage.js"></script>

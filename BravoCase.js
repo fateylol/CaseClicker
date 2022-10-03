@@ -32,7 +32,7 @@ function BravoBlue() {
     }
 
 
-    document.getElementById("itemstext").innerHTML = `${curritems}<div id=""class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' class="clearbutton" onClick="reply_click(this.id)"><img draggable="false" src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
+    document.getElementById("itemstext").innerHTML = `${curritems}<div class="itembg" title='${iteminfo[0]}'  style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' onmouseover="itemhover(this)" onmouseleave="exithover(this)" class="clearbutton5" onClick="reply_click(this.id)"><img draggable="false" class="hovermenu"  src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
 }
 
 function BravoPurple() {
@@ -66,7 +66,7 @@ function BravoPurple() {
     
         document.getElementById("menu").style.visibility = "visible";
     }
-    document.getElementById("itemstext").innerHTML = `${curritems}<div id=""class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' class="clearbutton" onClick="reply_click(this.id)"><img draggable="false" src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
+    document.getElementById("itemstext").innerHTML = `${curritems}<div class="itembg" title='${iteminfo[0]}'  style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}'onmouseover="itemhover(this)" onmouseleave="exithover(this)" class="clearbutton5" onClick="reply_click(this.id)"><img draggable="false" class="hovermenu"  src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
 }
 
 function BravoPink() {
@@ -96,7 +96,7 @@ function BravoPink() {
     
         document.getElementById("menu").style.visibility = "visible";
     }
-    document.getElementById("itemstext").innerHTML = `${curritems}<div id=""class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' class="clearbutton" onClick="reply_click(this.id)"><img draggable="false" src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
+    document.getElementById("itemstext").innerHTML = `${curritems}<div class="itembg" title='${iteminfo[0]}'  style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' onmouseover="itemhover(this)"onmouseleave="exithover(this)" class="clearbutton5" onClick="reply_click(this.id)"><img draggable="false" class="hovermenu"  src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
 }
 
 function BravoRed() {
@@ -128,7 +128,7 @@ function BravoRed() {
     
         document.getElementById("menu").style.visibility = "visible";
     }
-    document.getElementById("itemstext").innerHTML = `${curritems}<div id=""class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' class="clearbutton" onClick="reply_click(this.id)"><img draggable="false" src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
+    document.getElementById("itemstext").innerHTML = `${curritems}<div class="itembg" title='${iteminfo[0]}'  style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' onmouseover="itemhover(this)"onmouseleave="exithover(this)" class="clearbutton5" onClick="reply_click(this.id)"><img draggable="false" class="hovermenu"  src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
 }
 
 function BravoGold() {
@@ -167,5 +167,5 @@ function BravoGold() {
     
         document.getElementById("menu").style.visibility = "visible";
     }
-    document.getElementById("itemstext").innerHTML = `${curritems}<div id=""class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' class="clearbutton" onClick="reply_click(this.id)"><img draggable="false" src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
+    document.getElementById("itemstext").innerHTML = `${curritems}<div class="itembg" title='${iteminfo[0]}'  style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' onmouseover="itemhover(this)"onmouseleave="exithover(this)" class="clearbutton5" onClick="reply_click(this.id)"><img draggable="false" src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
 }
