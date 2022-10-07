@@ -33,7 +33,7 @@ function RecoilBlue() {
     }
 
 
-    document.getElementById("itemstext").innerHTML = `${curritems}<div class="itembg"  title='${iteminfo[0]}' style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' onmouseover="itemhover(this)" onmouseleave="exithover(this)"  class="clearbutton5" title='${iteminfo[0]}'  onClick="reply_click(this.id)"><img draggable="false" class="hovermenu"  src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}<button id = "equipbutton" style="visibility:hidden;">Equip</button></button></div>`;
+    document.getElementById("itemstext").innerHTML = `${curritems}<div class="itembg"  title='${iteminfo[0]}' style="border-style: solid;border-color:${iteminfo[3]};"><button id = "equipbutton" class="equipbtn"style="visibility:hidden;">Equip<button id='${idforbutton}'  class="clearbutton5" title='${iteminfo[0]}'  onClick="reply_click(this.id)"><img draggable="false" class="hovermenu"  src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></button></div>`;
 }
 
 function RecoilPurple() {
@@ -66,7 +66,7 @@ function RecoilPurple() {
         }
         document.getElementById("menu").style.visibility = "visible";
     }
-    document.getElementById("itemstext").innerHTML = `${curritems}<div class="itembg"  title='${iteminfo[0]}' style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' onmouseover="itemhover(this)" onmouseleave="exithover(this)" class="clearbutton5" title='${iteminfo[0]}'  onClick="reply_click(this.id)"><img draggable="false" class="hovermenu"  src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
+    document.getElementById("itemstext").innerHTML = `${curritems}<div class="itembg"  title='${iteminfo[0]}' style="border-style: solid;border-color:${iteminfo[3]};"><button id = "equipbutton" class="equipbtn"style="visibility:hidden;">Equip<button id='${idforbutton}'  class="clearbutton5" title='${iteminfo[0]}'  onClick="reply_click(this.id)"><img draggable="false" class="hovermenu"  src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></button></div>`;
 }
 
 function RecoilPink() {
@@ -96,7 +96,7 @@ function RecoilPink() {
         }
         document.getElementById("menu").style.visibility = "visible";
     }
-    document.getElementById("itemstext").innerHTML = `${curritems}<div   title='${iteminfo[0]}' class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' onmouseover="itemhover(this)" onmouseleave="exithover(this)" class="clearbutton5" title='${iteminfo[0]}'  onClick="reply_click(this.id)"><img draggable="false" class="hovermenu"  src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
+    document.getElementById("itemstext").innerHTML = `${curritems}<div class="itembg"  title='${iteminfo[0]}' style="border-style: solid;border-color:${iteminfo[3]};"><button id = "equipbutton" class="equipbtn"style="visibility:hidden;">Equip<button id='${idforbutton}'  class="clearbutton5" title='${iteminfo[0]}'  onClick="reply_click(this.id)"><img draggable="false" class="hovermenu"  src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></button></div>`;
 }
 
 function RecoilRed() {
@@ -126,7 +126,7 @@ function RecoilRed() {
         }
         document.getElementById("menu").style.visibility = "visible";
     }
-    document.getElementById("itemstext").innerHTML = `${curritems}<div   title='${iteminfo[0]}' class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' onmouseover="itemhover(this)" onmouseleave="exithover(this)" class="clearbutton5" title='${iteminfo[0]}'  onClick="reply_click(this.id)"><img draggable="false" class="hovermenu"  src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
+    document.getElementById("itemstext").innerHTML = `${curritems}<div class="itembg"  title='${iteminfo[0]}' style="border-style: solid;border-color:${iteminfo[3]};"><button id = "equipbutton" class="equipbtn"style="visibility:hidden;">Equip<button id='${idforbutton}'  class="clearbutton5" title='${iteminfo[0]}'  onClick="reply_click(this.id)"><img draggable="false" class="hovermenu"  src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></button></div>`;
 }
 
 function RecoilGold() {
@@ -163,5 +163,5 @@ function RecoilGold() {
     
         document.getElementById("menu").style.visibility = "visible";
     }
-    document.getElementById("itemstext").innerHTML = `${curritems}<div title='${iteminfo[0]}' class="itembg" style="border-style: solid;border-color:${iteminfo[3]};"><button id='${idforbutton}' onmouseover="itemhover(this)" onmouseleave="exithover(this)" class="clearbutton5" title='${iteminfo[0]}'  onClick="reply_click(this.id)"><img draggable="false" class="hovermenu"  src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></div>`;
+    document.getElementById("itemstext").innerHTML = `${curritems}<div class="itembg"  title='${iteminfo[0]}' style="border-style: solid;border-color:${iteminfo[3]};"><button id = "equipbutton" class="equipbtn"style="visibility:hidden;">Equip<button id='${idforbutton}'  class="clearbutton5" title='${iteminfo[0]}'  onClick="reply_click(this.id)"><img draggable="false" class="hovermenu"  src=${iteminfo[1]}.png style='height:50px; width:50px;'>$${iteminfo[2]}</button></button></div>`;
 }

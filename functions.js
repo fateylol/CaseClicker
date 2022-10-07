@@ -128,6 +128,9 @@
         document.getElementById("keyprice").innerHTML = "2.20"
         document.getElementById("caseimg").src = "./img/Bravo/bravo_case.png"
     }
+    function close6() {
+        document.getElementById("menu1337").style.visibility = "hidden";
+    }
 
     function opencasesmenu() {
         document.getElementById("menu4").style.visibility = "visible";
@@ -316,24 +319,49 @@
 
         let currMoney = document.getElementById("money").innerHTML
         let sumFL = parseFloat(currMoney)
+        let weaponboost = document.getElementById("priceboost").innerHTML
+        let weaponboostFl = parseFloat(weaponboost)
 
-        let newsum1 = sumFL + triggerfinger * multi
+        let newsum1 = sumFL + triggerfinger * multi + weaponboostFl
         document.getElementById("money").innerHTML = `${(Math.round(newsum1 * 100))/ 100}`
     }
     
     function reply_click(clicked) {
-        let itemsoldvalue = document.getElementById(clicked).textContent
-        let removedlr = itemsoldvalue.replace("$", "")
-        let currMoney = document.getElementById("money").innerHTML
-        
-        let itemSoldValueINT = parseFloat(removedlr)
-        let currMoney1INT = parseFloat(currMoney)
+        let state = document.getElementById("popupstate").textContent
+        let itemtitle = document.getElementById(clicked).title
+        let itemimg = document.getElementById(clicked).children[0].src
+        let itemid = document.getElementById(clicked).id
 
-        let sum = itemSoldValueINT + currMoney1INT
+        if (state == "Disabled") {
+            let itemsoldvalue = document.getElementById(clicked).textContent
+            let removedlr = itemsoldvalue.replace("$", "")
+            let currMoney = document.getElementById("money").innerHTML
 
-        document.getElementById("money").innerHTML = `${(Math.round(sum * 100))/ 100}`
+            if (itemid == idofweapon) {
+                document.getElementById("idequipped").innerHTML = `0`
+                document.getElementById("equippedweapon").innerHTML = `AK-47`
+            }
+            
+            let itemSoldValueINT = parseFloat(removedlr)
+            let currMoney1INT = parseFloat(currMoney)
+    
+            let sum = itemSoldValueINT + currMoney1INT
+    
+            document.getElementById("money").innerHTML = `${(Math.round(sum * 100))/ 100}`
+    
+            document.getElementById(clicked).parentElement.remove();
+            
+        } else {
+            document.getElementById("menu1337").style.visibility = "visible";
+            document.getElementById("weaponimggggg").src=`${itemimg}`
+            document.getElementById("weaponid").innerHTML = `${itemid}`;
+            document.getElementById("weaponimggggg").style.width = "80%";
+            document.getElementById("weaponimggggg").style.height = "80%";
+            document.getElementById("weaponname1").innerHTML = `${itemtitle}`
+            let idofweapon = document.getElementById("weaponid").innerHTML
 
-        document.getElementById(clicked).parentElement.remove();
+            
+        }
     }
 
 

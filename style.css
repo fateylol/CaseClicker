@@ -75,6 +75,8 @@ div {
 
 .clearbutton1 {
     border: 0px;
+    align-items: center;
+    justify-content: center;
     background-color: green;
     width:100%;
     height:10%;
@@ -85,6 +87,16 @@ div {
     height:100%;
     display: flex;
     flex-direction: column;
+}
+
+.onrow3 {
+    display: flex;
+    flex-direction: row;
+}
+
+.onrow4 {
+    display: flex;
+    flex-direction: row;
 }
 
 :root {
@@ -114,6 +126,7 @@ h1 {
 }
 
 .itembg {
+    display: flex;
     background-color: black;
     height:75px;
     width:75px;
@@ -121,7 +134,10 @@ h1 {
     margin-left: 2px;
     margin-top: 1px;
     text-align: center;
+    align-items: center;
+    justify-content: center;
 }
+
 
 p {
     flex-wrap: wrap;
@@ -276,4 +292,11 @@ h2 {
     position: absolute;
     top: 25x;
     background-color: rgb(67, 218, 100);
+}
+
+.equipbtn {
+    position: absolute;
+    background-color: green;
+    border-color: green;
+    border-radius: 5px;
 }

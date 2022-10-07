@@ -13,7 +13,21 @@
     <title>Case Clicker</title>
 </head>
 <body>
-
+    <div id="menu1337" class="bg-color" style="visibility:hidden;">
+        <div id ="weaponwin1"class="bg-modal">
+            <div class="container-modal">
+                <div class="onrow3">
+                    <h3 id="weaponname1">{WEAPON NAME}</h3><h3> (</h3><h3 id="weaponid">{LOADING}</h3><h3>)</h3>
+                </div>
+                <img id="weaponimggggg"src="loading.png">
+                <div class="onrow3">
+                    <button class="confirmbutton" onclick="close6()">Close</button>
+                    <button class="confirmbutton" onclick="confirmsellitem(this)">Sell</button>
+                    <button class="confirmbutton" onclick="equipcurritem(this)">Equip</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="menu8" class="bg-color" style="visibility:hidden;">
         <div id ="weaponwin1"class="bg-modal">
             <div class="container-modal">
@@ -157,12 +171,14 @@
     <div class="header"><h1>$</h1><h1 classa="moneytext"id="money">0.00</h1></div>
     <div class="container">
         <div class="onrow">
-            <div class="leftmenu"><button class="clearbutton" onclick="open123()"><img draggable="false" id="caseimg" src="./img/Recoil/case1.png" style="height:200px"><h2 id="currcase">Recoil Case</h2><center><div class="makestringrow"><p>Case Price: $</p><p id="caseprice">2.50</p><p>|</p><p>Key Price: $</p><p id="keyprice">1.28</p></div></button></div></center>
+            <div class="leftmenu"><button class="clearbutton" onclick="open123()"><img draggable="false" id="caseimg" src="./img/Recoil/case1.png" style="height:200px"><h2 id="currcase">Recoil Case</h2><center><div class="makestringrow"><p>Case Price: $</p><p id="caseprice">2.50</p><p> ⠀│⠀</p><p>Key Price: $</p><p id="keyprice">1.28</p></div></button></div></center>
             <button class="clearbutton1" onclick="shoot()"><div class="btnspace"></div>
-                    <h4>AK-47</h4>
+                <div class="online">
+                    <h4 id="equippedweapon">AK-47</h4><h4>(</h4><h4 id="idequipped">0</h4><h4>)</h4>
+                </div>
                     <div class="online">
                         <div><h5>Boost per second: $</h5></div>
-                        <h5>0.10</h5>
+                        <h5 id="priceboost">0</h5>
                     </div>
             </button>
         </div>
@@ -183,13 +199,43 @@
 </body>
 
 <script>
-function itemhover(item) {
-    console.log("ENTER")
-}
+    function confirmsellitem(item) {
+        let idofweapon = document.getElementById("weaponid").innerHTML
+        let value = document.getElementById(idofweapon).parentElement.textContent
+        split = value.split("$")
+        let equippedid = document.getElementById("idequipped").innerHTML
+        floatmoney = parseFloat(split[1])
+        document.getElementById(idofweapon).parentElement.remove();
+        document.getElementById("menu1337").style.visibility = "hidden";
 
-function exithover(item) {
-    console.log(document.getElementById(item.id).textContent)
-}
+
+        if (equippedid == idofweapon) {
+            document.getElementById("idequipped").innerHTML = `${0}`
+            document.getElementById("equippedweapon").innerHTML = `AK-47`
+        }
+
+        let currMoney = document.getElementById("money").innerHTML
+            
+        let currMoney1INT = parseFloat(currMoney)
+
+        let sum = floatmoney + currMoney1INT
+
+        document.getElementById("money").innerHTML = `${(Math.round(sum * 100))/ 100}`
+
+    }
+
+    function equipcurritem(item) {
+        let idofweapon = document.getElementById("weaponid").innerHTML
+        document.getElementById("idequipped").innerHTML = `${idofweapon}`
+        let moneyvalue = document.getElementById(idofweapon).textContent
+        let remdlr = moneyvalue.replace("$", " ")
+        let remdlrFL = parseFloat(remdlr)
+        let sum = remdlrFL / 20
+        let name = document.getElementById("weaponname1").innerHTML
+        document.getElementById("menu1337").style.visibility = "hidden";
+        document.getElementById("equippedweapon").innerHTML = `${name}`
+        document.getElementById("priceboost").innerHTML = `${(Math.round(sum * 100))/ 100}`;
+    }
 </script>
 
 <script src="functions.js"></script>
