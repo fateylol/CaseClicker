@@ -168,7 +168,7 @@
         </div>
     </div>
 
-    <div class="header"><h1>$</h1><h1 classa="moneytext"id="money">0.00</h1></div>
+    <div class="header"><h1>$</h1><h1 class="moneytext"id="money">0.00</h1></div>
     <div class="container">
         <div class="onrow">
             <div class="leftmenu"><button class="clearbutton" onclick="open123()"><img draggable="false" id="caseimg" src="./img/Recoil/case1.png" style="height:200px"><h2 id="currcase">Recoil Case</h2><center><div class="makestringrow"><p>Case Price: $</p><p id="caseprice">2.50</p><p> ⠀│⠀</p><p>Key Price: $</p><p id="keyprice">1.28</p></div></button></div></center>
@@ -186,6 +186,7 @@
         <div class="displaycontainer">
             <div class="displayicons">
                 <h2>INVENTORY</h2>
+                <h7 id="lastsaveseconds">Saved: - seconds ago.</h7>
                 <div>
                     <button class="settingbutton1" title="Stats" onclick="openstatsmenu()"><img src="./img/stats.png" style="height:29px;"></button>
                     <button class="settingbutton1" title="Cases" onclick="opencasesmenu()"><img src="./img/case.png" style="height:29px;"></button>
@@ -195,11 +196,17 @@
             </div>
             <div id ="itemstext"class="mainpart"></div>
         </div>
+        <div id = "teammatedivid"class="teammatesdiv">
+            <img draggable="false" class="TeammateIMG" src="./img/Teammate.png" style="height:15%;">
+        </div>
     </div>
 </body>
 
 <script>
-    function confirmsellitem(item) {
+
+document.getElementById("itemstext").innerHTML = localStorage.getItem("GETLASTITEMS");
+
+    function confirmsellitem() {
         let idofweapon = document.getElementById("weaponid").innerHTML
         let value = document.getElementById(idofweapon).parentElement.textContent
         split = value.split("$")
@@ -210,8 +217,9 @@
 
 
         if (equippedid == idofweapon) {
-            document.getElementById("idequipped").innerHTML = `${0}`
+            document.getElementById("idequipped").innerHTML = `0`
             document.getElementById("equippedweapon").innerHTML = `AK-47`
+            document.getElementById("priceboost").innerHTML = `0.00`
         }
 
         let currMoney = document.getElementById("money").innerHTML
@@ -226,7 +234,6 @@
 
     function equipcurritem(item) {
         let idofweapon = document.getElementById("weaponid").innerHTML
-        document.getElementById("idequipped").innerHTML = `${idofweapon}`
         let moneyvalue = document.getElementById(idofweapon).textContent
         let remdlr = moneyvalue.replace("$", " ")
         let remdlrFL = parseFloat(remdlr)
@@ -235,12 +242,17 @@
         document.getElementById("menu1337").style.visibility = "hidden";
         document.getElementById("equippedweapon").innerHTML = `${name}`
         document.getElementById("priceboost").innerHTML = `${(Math.round(sum * 100))/ 100}`;
+        document.getElementById("idequipped").innerHTML = `${idofweapon}`
     }
 </script>
-
+<script src="TeammatePlacer.js"></script>
 <script src="functions.js"></script>
 <script src="dataAos.js"></script>
+<! -- Cases -->
 <script src="CobblestonePackage.js"></script>
 <script src="BravoCase.js"></script>
 <script src="RecoilCase.js"></script>
+<! -- Save/Loading -->
+<script src="Save.js"></script>
+<script src="Load.js"></script>
 </html>

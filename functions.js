@@ -1,14 +1,15 @@
-
+    var lastsaveseconds = -1
     var autoclickprice = 2.50
-    var autoclicker = 0.10
+    var autoclicker = 0.02
     var triggerfingerprice = 5.00
-    var triggerfinger = 0.10
+    var triggerfinger = 0.03
     var amountpclick = 0.10
     var nameofbusiness = ""
     var playtime = 0
     var shotsfired = 0
     var headshots = 0
     var casesopened = 0
+    var ac_bank = 0
 
     function setac() {
         let state = document.getElementById("sestate").textContent
@@ -82,6 +83,16 @@
 
     function openstatsmenu() {
         document.getElementById("menu7").style.visibility = "visible";
+        let state = document.getElementById("sestate").textContent
+            if (state == "Enabled") {
+                var audio = new Audio('click.mp3');
+                audio.volume = 0.4;
+                audio.play();
+            }
+    }
+
+    function opensettings() {
+        document.getElementById("menu1").style.visibility = "visible";
         let state = document.getElementById("sestate").textContent
             if (state == "Enabled") {
                 var audio = new Audio('click.mp3');
@@ -216,6 +227,8 @@
             document.getElementById("money").innerHTML = `${(Math.round(sum * 100))/ 100}`
             autoclickprice = autoclickprice * 3
             autoclicker = autoclicker * 2
+            let prev = document.getElementById("teammatedivid").innerHTML
+            document.getElementById("teammatedivid").innerHTML = `${prev}<img draggable="false" class="TeammateIMG" src="./img/Teammate.png" style="height:15%;">`
             document.getElementById("autoclickervalue").innerHTML = `Teammate ($${autoclicker} > $${autoclicker * 2} P.Sec)`
             document.getElementById("upgrade1").textContent = `UPGRADE ($${autoclickprice})`
         }
@@ -223,16 +236,6 @@
 
     function closesettings() {
         document.getElementById("menu1").style.visibility = "hidden";
-        let state = document.getElementById("sestate").textContent
-            if (state == "Enabled") {
-                var audio = new Audio('click.mp3');
-                audio.volume = 0.4;
-                audio.play();
-            }
-    }
-
-    function opensettings() {
-        document.getElementById("menu1").style.visibility = "visible";
         let state = document.getElementById("sestate").textContent
             if (state == "Enabled") {
                 var audio = new Audio('click.mp3');
@@ -337,10 +340,7 @@
             let removedlr = itemsoldvalue.replace("$", "")
             let currMoney = document.getElementById("money").innerHTML
 
-            if (itemid == idofweapon) {
-                document.getElementById("idequipped").innerHTML = `0`
-                document.getElementById("equippedweapon").innerHTML = `AK-47`
-            }
+            
             
             let itemSoldValueINT = parseFloat(removedlr)
             let currMoney1INT = parseFloat(currMoney)
@@ -377,19 +377,19 @@
         let minusamount = cprice + kprice
 
         // DROP RATES //
-        let blueL = -5
-        let blueH = 150
+        let blueL = 0
+        let blueH = 150.5
 
-        let purpleL = 150
-        let purpleH = 180
+        let purpleL = 150.6
+        let purpleH = 180.5
 
-        let pinkL = 180
-        let pinkH = 190
+        let pinkL = 180.6
+        let pinkH = 190.5
 
-        let redL = 190
-        let redH = 195
+        let redL = 190.6
+        let redH = 195.5
 
-        let goldL = 195
+        let goldL = 195.6
         let goldH = 205
         
         if (sumFL > minusamount) {
@@ -397,9 +397,11 @@
             
             casesopened ++;
 
-            document.getElementById("money").innerHTML = `${(Math.round(newsum * 100))/ 100}`
             
-            let ranum = Math.floor(Math.random() * (+201 - 1)) + 1;
+            let ranum = Math.floor(Math.random() * 200) + 1
+
+            console.log(ranum)
+            document.getElementById("money").innerHTML = `${(Math.round(newsum * 100))/ 100}`
 
             let case12 = document.getElementById("currcase").innerHTML
             let case12name = case12.split(" ")
@@ -434,11 +436,15 @@
 
     }
 
+
+    
+
     var timer = setInterval(myTimer, 1000);
 
     function myTimer(){
 
-        
+        lastsaveseconds ++;
+        document.getElementById("lastsaveseconds").innerHTML = `Saved: ${lastsaveseconds} seconds ago.`
         playtime ++;
         document.getElementById("casesopened").innerHTML = `Cases Opened: ${casesopened}`
         document.getElementById("usernametextstats").innerHTML = `Username: ${nameofbusiness}.`
@@ -450,9 +456,12 @@
         
         if (state == "Enabled") {
             let currMoney = document.getElementById("money").innerHTML
+            document.title = `$${currMoney} Case Clicker`
             let currMoneyFL = parseFloat(currMoney)
             let autoclickerFL = parseFloat(autoclicker)
             let sum = currMoneyFL + autoclickerFL
             document.getElementById("money").innerHTML = `${(Math.round(sum * 100))/ 100}`
         }
     }
+
+    

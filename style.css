@@ -187,6 +187,12 @@ h3 {
     align-items: center;
 }
 
+h7 {
+    color: #696969;
+    font-size: medium;
+    font-family: 'Montserrat', sans-serif;
+}
+
 
 h4 {
     font-size: 15px;
@@ -231,11 +237,26 @@ h4 {
 }
 
 .displaycontainer {
-    width:100%;
+    width:80%;
     height:100%;
 }
 
-.displayicons {
+.teammatesdiv {
+    display: flex;
+    justify-content: center;
+    width:20%;
+    align-items: center;
+    height:100%;
+    background-color: rgb(32, 32, 51);
+    flex-wrap: wrap;
+}
+
+img {
+    margin:0%;
+    padding:0%;
+}
+
+.displayicons { 
     width:100%;
     height:3%;
     background-color: rgb(34, 38, 56);
@@ -300,3 +321,4 @@ h2 {
     border-color: green;
     border-radius: 5px;
 }
+

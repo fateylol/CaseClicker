@@ -82,7 +82,8 @@ function RecoilPink() {
     let iteminfo = randomitem.split("^")
     let curritems = document.getElementById("itemstext").innerHTML;
     let state = document.getElementById("popupstate").textContent
-        
+    
+    
     if (state == "Enabled") {
         document.getElementById("newitemname").textContent = `${iteminfo[0]}`
         document.getElementById("newitemimg").src = `${iteminfo[1]}.png`
@@ -101,7 +102,7 @@ function RecoilPink() {
 
 function RecoilRed() {
     var items = [
-        "USP-S | Printstream^./img/Recoil/usp_printstream^160.43^#eb4b4b",
+        "USP-S | Printstream^./img/Recoil/usp_printstream^60.23^#eb4b4b",
         "AWP | Chromatic Aberration^./img/Recoil/awp_chromatic_aberration^63.74^#eb4b4b",
     ]
 
@@ -131,13 +132,13 @@ function RecoilRed() {
 
 function RecoilGold() {
     var items = [
-        "Broken Fang | Jade^./img/Recoil/broken_fang_jade^765.23^#caab05",
+        "Broken Fang | Jade^./img/Recoil/broken_fang_jade^252.23^#caab05",
         "Broken Fang | Yellow Banded^./img/Recoil/broken_fang_yellow_banded^293.43^#caab05",
-        "Driver Gloves | Snow Leopard^./img/Recoil/driver_gloves_snow_leopard^1334.32^#caab05",
-        "Hand Wraps | CAUTION!^./img/Recoil/hand_wraps_caution^594.32^#caab05",
-        "Moto Gloves | Finish Line^./img/Recoil/moto_gloves_finish_line^2923.32^#caab05",
-        "Moto Gloves | Smoke Out^./img/Recoil/moto_gloves_smoke_out^593.43^#caab05",
-        "Specialist Gloves | Marble Fade^./img/Recoil/special_gloves_marble_fade^1243.32^#caab05",
+        "Driver Gloves | Snow Leopard^./img/Recoil/driver_gloves_snow_leopard^321.32^#caab05",
+        "Hand Wraps | CAUTION!^./img/Recoil/hand_wraps_caution^132.32^#caab05",
+        "Moto Gloves | Finish Line^./img/Recoil/moto_gloves_finish_line^300.32^#caab05",
+        "Moto Gloves | Smoke Out^./img/Recoil/moto_gloves_smoke_out^222.43^#caab05",
+        "Specialist Gloves | Marble Fade^./img/Recoil/special_gloves_marble_fade^222.32^#caab05",
     ]
 
 
